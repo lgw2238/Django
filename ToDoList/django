@@ -1,0 +1,33 @@
++ Django
+: 파이썬으로 만들어진 무료 오픈소스 웹 어플리케이션 프레임워크
+: 쉽고 빠르게 웹 어플리케이션을 개발할 수 있도록 돕는 웹 프레임워크
+ (Full Stack Framework)
+
+ cf ) Flask : micro framework
+
+ > 장고 프로젝트
+ - django-admin startproject<프로젝트 이름>
+ - 프로젝트에는 여러 개의 app을 만들 수 있음
+
+ > MTV (Model Template View) 개발 방식
+ - M (Model : models.py) : DBMS 내용
+  : 장고에서 하나의 모델은 하나의 클래스로 나타낸다.
+  클래스 내부에 데이터의 이름과 데이터 형태를 정의
+
+    [sqllite]
+    : PRAGAMA
+    컬럼순서 | 이름 | 자료형 | notnull 여부 (1/0)
+
+
+ - T (Template - HTML) : 사용자에게 보여줄 화면 관련 (templates directory)
+ - V (View : views.py) : Logic 관련
+
+
+ > 주요 파일
+ -settings.py : 설정 관련
+ -urls.py : URLconf (URL과 view를 mapping)
+
+
+ - models.py : DBMS 관련 (default : ORM 방식)\
+ - views.py : 화면 처리 로직, business 로직
+ - admin.py : app admin 처리

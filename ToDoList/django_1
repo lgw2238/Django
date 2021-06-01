@@ -1,0 +1,75 @@
++ Django
+: 파이썬으로 만들어진 무료 오픈소스 웹 어플리케이션 프레임워크
+: 쉽고 빠르게 웹 어플리케이션을 개발할 수 있도록 돕는 웹 프레임워크
+ (Full Stack Framework)
+
+ cf ) Flask : micro framework
+
+ > 장고 프로젝트
+ - django-admin startproject<프로젝트 이름>
+ - 프로젝트에는 여러 개의 app을 만들 수 있음
+
+ > MTV (Model Template View) 개발 방식
+ - M (Model : models.py) : DBMS 내용
+  : 장고에서 하나의 모델은 하나의 클래스로 나타낸다.
+  클래스 내부에 데이터의 이름과 데이터 형태를 정의
+
+    [sqllite]
+    : PRAGAMA
+    컬럼순서 | 이름 | 자료형 | notnull 여부 (1/0)
+
+
+ - T (Template - HTML) : 사용자에게 보여줄 화면 관련 (templates directory)
+
+ [Django 템플릿 엔진]
+ : DTL (Django Template Language) - 장고의 코어 템플릿 엔진
+ [Django 템플릿 문법]
+    1. 변수 : {{ 변수 }} # 변수명은 영문자, _(under bar)로 구성. 공백, 특수문자는 사용 x
+           : . 은 변수의 속성에 접근 할 때 사용.
+           : . 조회 순서 - 딕셔너리조회 -> 속성조회 - > 메소드 호출 - > 리스트의 인덱스 조회
+           : 필터를 사용 가능
+           ex) {{ name | lower }} - name 변수에 lower를 적용시켜서 결과를 소문자로 출력
+           {{ text | escapte | linebreaks }} -
+    2. 태그 : 어떤 태그는 텍스트를 생성, 어떤 태그는 로직 수행
+           : 기본형태 {% tag %} 태그 사용 {% endtag %}
+         i ) for 반복문
+        <ul>
+          {% for user in users: %}
+          <li> {{ user }} </li>
+          {% endfor %}
+        <ul>
+
+        ii ) if 조건문
+        {%if users %}
+          users : {{ users | length }}
+        {% else %}
+          user가 없어요
+        {% endif %}
+
+
+        iii) block, extends, include ....
+
+ - V (View : views.py) : Logic 관련
+
+ > 주요 파일
+ -settings.py : 설정 관련
+ -urls.py : URLconf (URL과 view를 mapping)
+
+
+ - models.py : DBMS 관련 (default : ORM 방식)\
+ - views.py : 화면 처리 로직, business 로직
+ - admin.py : app admin 처리
+
+
+ - models.py : DBMS 관련 (default : ORM 방식)
+ : 여기에 정의된 모델 (데이터베이스 테이블)은 migrate 명령을 통해 실제 데이터베이스에 적용
+ : migrate 명령
+ 1) 모델을 변경 - 필요한 테이블, 컬럼, 데이터타입등을 작성
+ 2) python manage.py makemigrations <앱명> - 일종의 설계도
+ 3) python manage.py migration <앱명>
+
+ [Django 모델 API] - 데이터를 추가 / 갱신 조회
+
+
+ - views.py : 화면 처리 로직, business 로직
+ - admin.py : app admin 처리

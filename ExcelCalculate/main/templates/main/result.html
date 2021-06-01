@@ -1,0 +1,64 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Boot strap -->
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .content{
+            height: 75%;
+        }
+        .messageDiv{
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+        .custom-btn{
+            font-size: 10px;
+        }
+        .panel-footer{
+            height:10%;
+            color:gray;
+        }
+    </style>
+
+    <title>Excel Calculate</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="page-header">
+                <a href="/" class="btn btn-default btn-xs" style="margin: 10px">메인화면</a>
+                <h1>Excel Calculate <small>with Django</small></h1>
+            </div>
+        </div>
+        <div class='body'>
+            <div class="resultDiv">
+                <h2> * Excel 결과 확인 *</h2>
+                <h3> 등급별 최소값, 최대값, 평균값 조회</h3>
+                {% for key, value in grade_calculate_dic.items %}
+                    <h4>등급 : {{ key }} </h4>
+                    <h5>최소값 : {{ value.min }}</h5>
+                    <h5>최대값 : {{ value.max }}</h5>
+                    <h5>평균값 : {{ value.avg }}</h5>
+                {% endfor %}
+                <hr/>
+                <h3> * 이메일 도메인 별 인원수 조회 *</h3>
+                {% for key, value in email_domain_dic.items %}
+                    <h4>{{ key }} : {{ value }}</h4>
+                {% endfor %}
+            </div>
+            <hr>
+        </div>
+        <div class="panel-footer">
+            Django - goott7
+        </div>
+    </div>
+</body>
+</html>
+
